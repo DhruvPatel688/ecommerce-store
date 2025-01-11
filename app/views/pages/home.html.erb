@@ -45,24 +45,8 @@
             <h1>Shop Today's Deals</h1>
         </div>
         <div class="insights">
-            <div class ="sales">
-                <div class ="left">
-                </div>
-                <div class ="progress">
-                    <svg>
-                        <circle cx="38" cy="38" r ='36'></circle>
-                    </svg>
-                    <div class ="number">
-                        <p>
-                            81%
-                        </p>
-                        <h1 >$0.99</h1>
-                        <div class ="left">
-                        <button class ="btn-button" id = "1"><h3>Add to cart</h3></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <% @products.each do |product| %>
+        
             
         
 
@@ -74,151 +58,23 @@
                     </svg>
                     <div class ="number">
                         <p>
-                            81%
+                            
+                            <div data-product-name = "<%=product.name%>"><%=product.name%></div>
                         </p>
                     </div>
                 </div>
                 <div class ="left">
-                    <h1>Free</h1>
-                    <button class ="btn-button" id = "2"><h3>Add to Cart</h3></button>
+                    
+                    <div><h1 data-product-price = "<%=product.price%>">$<%=product.price%></h1></div>
+                    <button class ="btn-button" id = "add_<%=product.id%>"><h3>Add to Cart</h3></button>
                     
                 </div>
             </div>
             
     
-            <div class ="expenses">
-                
-                <div class ="progress">
-                    <svg>
-                        <circle cx="38" cy="38" r ='36'></circle>
-                    </svg>
-                    <div class ="number">
-                        <p>
-                            81%
-                        </p>
-                    </div>
-                </div>
-                <div class ="left">
-                    <h1>$1.99</h1>
-                    <button class ="btn-button" id = "3"><h3>Add to Cart</h3></button>
-                    
-                </div>
-            </div>
-            
-            <div class ="expenses">
-                
-                <div class ="progress">
-                    <svg>
-                        <circle cx="38" cy="38" r ='36'></circle>
-                    </svg>
-                    <div class ="number">
-                        <p>
-                            81%
-                        </p>
-                    </div>
-                </div>
-                <div class ="left">
-                    <h1>Free</h1>
-                    <button class ="btn-button" id = "4"><h3>Add to Cart</h3></button>
-                    
-                </div>
-            </div>
-
-            <div class ="expenses">
-                
-                <div class ="progress">
-                    <svg>
-                        <circle cx="38" cy="38" r ='36'></circle>
-                    </svg>
-                    <div class ="number">
-                        <p>
-                            81%
-                        </p>
-                    </div>
-                </div>
-                <div class ="left">
-                    <h1>$0.99</h1>
-                    <button class ="btn-button" id = "5"><h3>Add to Cart</h3></button>
-                    
-                </div>
-            </div>
-
-            <div class ="expenses">
-                
-                <div class ="progress">
-                    <svg>
-                        <circle cx="38" cy="38" r ='36'></circle>
-                    </svg>
-                    <div class ="number">
-                        <p>
-                            81%
-                        </p>
-                    </div>
-                </div>
-                <div class ="left">
-                    <h1>$2.99</h1>
-                    <button class ="btn-button" id = "6"><h3>Add to Cart</h3></button>
-                    
-                </div>
-            </div>
-
-            <div class ="expenses">
-                
-                <div class ="progress">
-                    <svg>
-                        <circle cx="38" cy="38" r ='36'></circle>
-                    </svg>
-                    <div class ="number">
-                        <p>
-                            81%
-                        </p>
-                    </div>
-                </div>
-                <div class ="left">
-                    <h1>$1.99</h1>
-                    <button class ="btn-button" id = "7"><h3>Add to Cart</h3></button>
-                    
-                </div>
-            </div>
-
-            <div class ="expenses">
-                
-                <div class ="progress">
-                    <svg>
-                        <circle cx="38" cy="38" r ='36'></circle>
-                    </svg>
-                    <div class ="number">
-                        <p>
-                            81%
-                        </p>
-                    </div>
-                </div>
-                <div class ="left">
-                    <h1>$0.99</h1>
-                    <button class ="btn-button" id = "8"><h3>Add to Cart</h3></button>
-                    
-                </div>
-            </div>
-
-            <div class ="expenses">
-                
-                <div class ="progress">
-                    <svg>
-                        <circle cx="38" cy="38" r ='36'></circle>
-                    </svg>
-                    <div class ="number">
-                        <p>
-                            81%
-                        </p>
-                    </div>
-                </div>
-                <div class ="left">
-                    <h1>Free</h1>
-                    <button class ="btn-button" id = "9"><h3>Add to Cart</h3></button>
-                    
-                </div>
-            </div>
     
+        
+        <% end %>
         </div>
         </main>
         <div class ="right">
@@ -236,7 +92,7 @@
             <div class ="profile">
                 <div class ="info">
                     <h1>
-                        Hey, <b>Dhruv</b></h1>
+                      
 
                 </div>
                 <!--End of Top-->
@@ -250,11 +106,11 @@
                                 <tbody class = "box-item">
                                     <tr>
                                         <td class = "font">
-                                            <img src ="#"></img>
+                                            <img src ="#"><img>
                                         </td>
                                         
                                         <td class = "font">$0.99</td>
-                                        <a  href = "#"><td class = "danger font"><span class="material-symbols-outlined">
+                                        <a  href = "#"><td class = "danger font"><span class="material-symbols-outlined" id = "delete">
                                             delete
                                             </span></td></a>
                                         
@@ -268,3 +124,4 @@
                         <button type = "button" class="btn-button2"><h1>Purchase</h1></button>
                     </div>
 
+<%= javascript_include_tag('index.js')%>
